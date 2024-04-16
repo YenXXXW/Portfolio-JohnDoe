@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -42,10 +42,9 @@ function Home() {
 
         fetchUserData();
     }, [params?.user, userId, navigate]);
-    console.log(user);
 
     // filtering all the data from the API
-    const sortedFilteredSkills = user?.skills?.filter((item) => item.enabled)?.sort((a, b) => a.sequence - b.sequence);
+
     const sortedFilteredProject = user?.projects?.filter((item) => item.enabled)?.sort((a, b) => a.sequence - b.sequence);
     const filteredServices = user?.services?.filter((item) => item.enabled);
     const filteredTestimonials = user?.testimonials?.filter((item) => item.enabled);
@@ -53,19 +52,18 @@ function Home() {
     const filteredEducation = user?.timeline?.filter((item) => item.forEducation && item.enabled);
     const filteredExperience = user?.timeline?.filter((item) => !item.forEducation && item.enabled);
 
-    console.log(sortedFilteredSkills, sortedFilteredProject);
-
     if (isLoading) {
         return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>;
     }
+
     return (
         <>
             <Header />
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Services />
+            <Hero user={user} />
+            <About user={user} />
+
+            <Projects projects={sortedFilteredProject} />
+            <Services services={filteredServices} />
             <Timeline />
             <Testimonial />
             <Contact />
