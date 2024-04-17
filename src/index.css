@@ -30,6 +30,6 @@
 
 @layer components {
     .PageContainer {
-        @apply pt-[20%] px-[10%] sm:pt-[5%] md:min-h-screen  w-full relative;
+        @apply pt-[20%] px-[10%] sm:pt-[5%] min-h-screen  w-full relative;
     }
 }

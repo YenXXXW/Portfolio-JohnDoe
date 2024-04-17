@@ -19,7 +19,7 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
 const Modal = ({ project, setShowModal }) => {
     console.log('Modal data', project);
     return (
-        <div className="relative md:flex md:flex-row-reverse bg-black/80  pl-[5%] pt-[5%]">
+        <div className="relative md:flex md:flex-row-reverse bg-black/80  pl-[5%] pt-[6%]">
             <IoCloseOutline
                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
                 onClick={() => {
