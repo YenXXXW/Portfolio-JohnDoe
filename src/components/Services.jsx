@@ -23,7 +23,7 @@ const ServiceCard = ({ service }) => {
 
 function Services({ services }) {
     return (
-        <div className="px-[10%]">
+        <div className="PageContainer" id="Services">
             <h2>Services</h2>
             {services.map((service, i) => (
                 <div key={i} className="mb-2">

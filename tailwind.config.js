@@ -7,6 +7,8 @@ export default {
                 Nunito: ['Nunito Sans', 'sans-serif'],
                 Josefin: ['Josefin Sans', 'sans-serif'],
                 Tilt: ['Tilt Neon', 'sans-serif'],
+                Montserrat: ['Montserrat', 'sans-serif'],
+                Dosis: ['Dosis', 'sans-serif'],
             },
         },
     },

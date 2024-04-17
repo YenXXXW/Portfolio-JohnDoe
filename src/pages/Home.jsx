@@ -19,7 +19,7 @@ function Home() {
 
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [isSending, setIsSending] = useState(false);
+    // const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
         document.cookie = `portfolio-name=portfolio1`;
@@ -44,7 +44,7 @@ function Home() {
     }, [params?.user, userId, navigate]);
 
     // filtering all the data from the API
-
+    const sortedFilteredSkills = user?.skills?.filter((item) => item.enabled)?.sort((a, b) => a.sequence - b.sequence);
     const sortedFilteredProject = user?.projects?.filter((item) => item.enabled)?.sort((a, b) => a.sequence - b.sequence);
     const filteredServices = user?.services?.filter((item) => item.enabled);
     const filteredTestimonials = user?.testimonials?.filter((item) => item.enabled);
@@ -61,12 +61,12 @@ function Home() {
             <Header />
             <Hero user={user} />
             <About user={user} />
-
+            <Skills skills={sortedFilteredSkills} />
             <Projects projects={sortedFilteredProject} />
             <Services services={filteredServices} />
-            <Timeline />
-            <Testimonial />
-            <Contact />
+            <Timeline education={filteredEducation} experience={filteredExperience} />
+            <Testimonial testimonials={filteredTestimonials} />
+            <Contact user={user} socialMedia={filteredSocialHandles} />
         </>
     );
 }

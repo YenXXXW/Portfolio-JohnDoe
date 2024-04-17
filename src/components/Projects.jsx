@@ -19,36 +19,38 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
 const Modal = ({ project, setShowModal }) => {
     console.log('Modal data', project);
     return (
-        <div className="relative flex gap-4 bg-black/80 w-[70vw] h-[60vh] pl-[5%] pt-[5%]">
+        <div className="relative md:flex md:flex-row-reverse bg-black/80  pl-[5%] pt-[5%]">
             <IoCloseOutline
                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
                 onClick={() => {
                     setShowModal(false);
                 }}
             />
+            <img src={project.image.url} className="object-cover h-[200px] md:w-[300px] md:h-[250px]   lg:w-[500px] lg:h-[300px]" />
 
-            <div className="basis-1/2 flex flex-col gap-4 text-sm">
-                <h3 className="uppercase">{project.title}</h3>
-                <p>{project.description}</p>
-                <div>
-                    <p className="font-bold  mt-5">Tech stack</p>
-                    <div className="flex gap-3 mt-2">
-                        {project.techStack.map((tech) => (
-                            <span key={tech}>{tech}</span>
-                        ))}
+            <div className="flex gap-4">
+                <div className=" flex flex-col gap-4 text-sm">
+                    <h3 className="uppercase">{project.title}</h3>
+                    <p>{project.description}</p>
+                    <div>
+                        <p className="font-bold  mt-5">Tech stack</p>
+                        <div className="flex gap-3 mt-2">
+                            {project.techStack.map((tech) => (
+                                <span key={tech}>{tech}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex gap-4 mt-5">
+                        <a href={project.githuburl} target="_blank" rel="noreferrer">
+                            <span className="w-[80px] py-1 bg-gray-800 rounded-md text-white inline-block text-center">code</span>
+                        </a>
+
+                        <a href={project.liveurl}>
+                            <span className="w-[80px] py-1 bg-gray-800 rounded-md text-white inline-block  text-center">live</span>
+                        </a>
                     </div>
                 </div>
-                <div className="flex gap-4 mt-5">
-                    <a href={project.githuburl} target="_blank" rel="noreferrer">
-                        <span className="w-[80px] py-1 bg-gray-800 rounded-md text-white inline-block text-center">code</span>
-                    </a>
-
-                    <a href={project.liveurl}>
-                        <span className="w-[80px] py-1 bg-gray-800 rounded-md text-white inline-block  text-center">live</span>
-                    </a>
-                </div>
             </div>
-            <img src={project.image.url} className="w-[350px] h-[300px]" />
         </div>
     );
 };
@@ -59,11 +61,11 @@ function Projects({ projects }) {
     const [modalData, setModalData] = useState();
 
     return (
-        <div className={`lg:px-[10%] lg:py-[5%] w-full relative z-10`}>
+        <div className={`PageContainer relative z-10`} id="Projects">
             {/* changes the background color when the modal shows */}
             {showModal && <div className={`fixed top-0 left-0 z-30 w-full h-screen bg-black/60 backdrop-blur-sm`} />}
             <h2>Projects</h2>
-            <div className="flex flex-wrap justify-center gap-10">
+            <div className="flex mt-[5%] flex-wrap justify-center gap-10">
                 {projects.map((project) => (
                     <div key={project.image.url}>
                         <ProjectCard project={project} setShowModal={setShowModal} setModalData={setModalData} />
@@ -71,7 +73,7 @@ function Projects({ projects }) {
                 ))}
             </div>
             {showModal && (
-                <div className="fixed mx-auto top-0 bottom-0 left-0 right-0 m-auto z-40 w-[75%] h-[60%]">
+                <div className="fixed mx-auto top-0 bottom-0 lg:bottom-0 left-0 right-0 m-auto z-40 w-[95%] h-[90%] md:w-[75%] md:h-[60%]">
                     <Modal project={modalData} setShowModal={setShowModal} />
                 </div>
             )}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=M+PLUS+1+Code:wght@100..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Reem+Kufi+Fun:wght@400..700&family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,12 +10,26 @@
         @apply bg-black text-white;
     }
     h1 {
-        @apply text-3xl sm:text-4xl md:text-5xl font-bold font-Josefin;
+        @apply text-3xl sm:text-4xl md:text-5xl font-bold font-Josefin uppercase;
     }
     h2 {
-        @apply text-2xl sm:text-3xl md:text-4xl font-bold;
+        @apply text-2xl sm:text-3xl md:text-4xl uppercase font-Josefin text-blue-800;
     }
     h3 {
         @apply text-lg sm:text-2xl md:text-3xl font-semibold;
+    }
+    h4 {
+        @apply md:text-xl font-bold;
+    }
+
+    input,
+    textarea {
+        @apply bg-black focus:outline-none border-[1px] border-blue-700 w-full px-3 pt-1;
+    }
+}
+
+@layer components {
+    .PageContainer {
+        @apply pt-[20%] px-[10%] sm:pt-[5%] md:min-h-screen  w-full relative;
     }
 }
