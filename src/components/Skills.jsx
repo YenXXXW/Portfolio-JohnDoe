@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 function Skills({ skills }) {
-    console.log(skills);
     return (
         <div className="PageContainer" id="Skills">
             <h2 className="mb-3">Skills</h2>
@@ -24,8 +23,8 @@ function Skills({ skills }) {
     );
 }
 
+export default Skills;
+
 Skills.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default Skills;

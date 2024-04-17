@@ -58,7 +58,7 @@ function Home() {
 
     return (
         <>
-            <Header />
+            <Header user={user} />
             <Hero user={user} />
             <About user={user} />
             <Skills skills={sortedFilteredSkills} />
