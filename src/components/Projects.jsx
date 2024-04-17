@@ -18,7 +18,7 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
 //Modle to pop up when the project is clicked
 const Modal = ({ project, setShowModal }) => {
     return (
-        <div className="relative md:flex md:flex-row-reverse bg-black/80  pl-[5%] py-[6%]">
+        <div className="relative sm:flex sm:flex-row-reverse bg-black/80  pl-[5%] py-[6%]">
             <IoCloseOutline
                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
                 onClick={() => {
