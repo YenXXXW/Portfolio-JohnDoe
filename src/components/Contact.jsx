@@ -6,7 +6,7 @@ function Contact({ user, socialMedia }) {
         <div className="md:flex md:flex-col PageContainer" id="Contact">
             <h2 className="uppercase">Contact</h2>
             <div className="flex md:flex-1 flex-col md:flex-col my-auto gap-10 items-center ">
-                <div className="md:basis-1/2 pl-[10%] flex flex-col gap-5">
+                <div className="md:basis-1/2 md:pl-[10%] flex flex-col gap-5">
                     <h3>Let&apos;s talk</h3>
                     <h2 className="text-blue-700">{user.about.name}</h2>
                     <div>
@@ -27,7 +27,7 @@ function Contact({ user, socialMedia }) {
                         ))}
                     </div>
                 </div>
-                <form onSubmit={(e) => e.preventDefault()} className="flex flex-col  md:basis-1/2 gap-5 font-Josefin">
+                <form onSubmit={(e) => e.preventDefault()} className="flex flex-col  w-full md:basis-1/2 gap-5 font-Josefin">
                     <input type={'text'} required placeholder="Name" />
                     <input type={'email'} required placeholder="Email" />
                     <textarea required rows={6} placeholder="Message" />
