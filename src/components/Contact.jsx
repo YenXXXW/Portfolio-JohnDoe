@@ -5,8 +5,8 @@ function Contact({ user, socialMedia }) {
     return (
         <div className="md:flex md:flex-col PageContainer" id="Contact">
             <h2 className="uppercase">Contact</h2>
-            <div className="flex md:flex-1 flex-col md:flex-col my-auto gap-10 items-center ">
-                <div className="md:basis-1/2 md:pl-[10%] flex flex-col gap-5">
+            <div className="flex md:flex-1 flex-col md:flex-row my-auto gap-10 md:items-center">
+                <div className="md:basis-1/2 pl-[10%] flex flex-col gap-5">
                     <h3>Let&apos;s talk</h3>
                     <h2 className="text-blue-700">{user.about.name}</h2>
                     <div>

@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+// import { useEffect, useState } from 'react';
 
 function Skills({ skills }) {
+    // const [selectedSkills, setSelectedSkills] = useState();
+    // const [showMore, setShowMore] = useState(false);
+
     return (
         <div className="PageContainer" id="Skills">
             <h2 className="mb-3">Skills</h2>
-            <ul className="flex flex-wrap w-full gap-4">
+            <ul className="flex flex-wrap w-full justify-center gap-4">
                 {skills.map((skill) => (
                     <li key={skill.name}>
                         <span className="flex bg-gray-900 w-[300px] h-[70px] pl-3 gap-3 items-center">
@@ -19,6 +23,7 @@ function Skills({ skills }) {
                     </li>
                 ))}
             </ul>
+            {/* {showMore ? <button onClick={() => setShowMore(false)}>showLess</button> : <button onClick={() => setShowMore(true)}>showMore</button>} */}
         </div>
     );
 }

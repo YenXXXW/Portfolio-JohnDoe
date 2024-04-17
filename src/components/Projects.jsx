@@ -5,7 +5,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 const ProjectCard = ({ project, setShowModal, setModalData }) => {
     return (
         <div
-            className={`flex  w-[350px] h-[250px] relative shadow-xl border-[1px] border-black/15 cursor-pointer`}
+            className={`flex w-[350px] h-[250px] relative shadow-xl border-[1px] border-black/15 cursor-pointer`}
             onClick={() => {
                 setShowModal(true), setModalData(project);
             }}
@@ -17,9 +17,8 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
 
 //Modle to pop up when the project is clicked
 const Modal = ({ project, setShowModal }) => {
-    console.log('Modal data', project);
     return (
-        <div className="relative md:flex md:flex-row-reverse bg-black/80  pl-[5%] pt-[6%]">
+        <div className="relative md:flex md:flex-row-reverse bg-black/80  pl-[5%] py-[6%]">
             <IoCloseOutline
                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
                 onClick={() => {
@@ -59,13 +58,14 @@ function Projects({ projects }) {
     // const selectedProjects = projects.slice(3, 7);
     const [showModal, setShowModal] = useState(false);
     const [modalData, setModalData] = useState();
+    console.log(showModal);
 
     return (
         <div className={`PageContainer relative z-10`} id="Projects">
             {/* changes the background color when the modal shows */}
             {showModal && <div className={`fixed top-0 left-0 z-30 w-full h-screen bg-black/60 backdrop-blur-sm`} />}
             <h2>Projects</h2>
-            <div className="flex mt-[5%] flex-wrap justify-center gap-10">
+            <div className="flex mt-[5%] flex-wrap justify-center gap-5 lg:gap-10">
                 {projects.map((project) => (
                     <div key={project.image.url}>
                         <ProjectCard project={project} setShowModal={setShowModal} setModalData={setModalData} />
@@ -73,7 +73,7 @@ function Projects({ projects }) {
                 ))}
             </div>
             {showModal && (
-                <div className="fixed mx-auto top-0 bottom-0 lg:bottom-0 left-0 right-0 m-auto z-40 w-[95%] h-[90%] md:w-[75%] md:h-[60%]">
+                <div className="fixed mx-auto top-0 bottom-0 lg:bottom-0 left-0 right-0 m-auto z-40 w-[95%] h-[90%] md:w-[75%] md:h-[86%]">
                     <Modal project={modalData} setShowModal={setShowModal} />
                 </div>
             )}

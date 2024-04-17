@@ -5,17 +5,17 @@ const ServiceCard = ({ service }) => {
     return (
         <div tabIndex={0} className="collapse text-white">
             <div className="collapse-title text-xl font-medium">
-                <span className="flex gap-3 items-center">
+                <p className="flex gap-3 items-center">
                     <span>{service.name}</span>
                     <MdOutlineKeyboardArrowDown />
-                </span>
+                </p>
             </div>
             <div className="collapse-content relative flex gap-10 ">
-                <div className="py-[5%] flex flex-col gap-5 basis-1/2">
+                <div className="py-[5%] flex flex-col gap-5 md:basis-1/2">
                     <p className="text-sm">{service.desc}</p>
                     <h3>{service.charge}</h3>
                 </div>
-                <img src={service.image.url} className="w-[300px] h-[200px] object-cover" />
+                <img src={service.image.url} className="hidden md:block md:w-[300px] md:h-[200px] object-cover" />
             </div>
         </div>
     );
