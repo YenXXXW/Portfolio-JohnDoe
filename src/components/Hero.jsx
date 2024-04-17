@@ -4,7 +4,7 @@ import HeroImg from '../assets/hero.jpg';
 function Hero({ user }) {
     return (
         <div className="flex flex-col w-full items-start relative bg-blend-normal PageContainer " id="Home">
-            <div className="h-[50vh] md:flex-1 lg:max-w-[60%] flex flex-col justify-end md:justify-center z-10">
+            <div className="h-[65vh] md:flex-1 lg:max-w-[60%] flex flex-col justify-end md:justify-center z-10">
                 <p className="font-semibold mb-3">Craft Interactive Experiences, One Line of Code at a Time</p>
                 <h1 className="uppercase text-blue-800">{user.about.name}</h1>
                 <h2 className="uppercase text-white">{user.about.title}</h2>
