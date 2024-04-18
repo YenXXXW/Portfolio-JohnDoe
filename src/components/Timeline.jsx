@@ -5,7 +5,7 @@ function Timeline({ education, experience }) {
     return (
         <div className="PageContainer" id="Timeline">
             <h2 className="mb-10">Timeline</h2>
-            <div className="flex flex-col md:flex-grow gap-5 ">
+            <div className="flex flex-col md:flex-row gap-5 ">
                 <div>
                     <h4 className="font-Montserrat mb-3">Education</h4>
                     <div className="flex flex-col gap-5 border-l-[1px] border-blue-700 ml-[10%]">

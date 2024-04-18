@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 function Skills({ skills }) {
     // const [selectedSkills, setSelectedSkills] = useState();
     // const [showMore, setShowMore] = useState(false);
-    console.log(skills);
+
     return (
         <div className="PageContainer" id="Skills">
             <h2 className="mb-3">Skills</h2>
-            <ul className="flex flex-wrap w-full justify-center gap-4">
+            <ul className="grid md:grid-cols-2 lg:grid-cols-3 w-full justify-center gap-4">
                 {skills.map((skill) => (
                     <li key={skill.name}>
                         <span className="flex bg-gray-900 w-[300px] h-[70px] pl-3 gap-3 items-center">
@@ -16,7 +16,7 @@ function Skills({ skills }) {
                             <div>
                                 <h4 className="font-Nunito">{skill.name}</h4>
                                 <div className=" mt-2 h-[2px] w-[200px] bg-white">
-                                    <div className={`bg-blue-700 h-full w-[${skill.percentage}%]`}></div>
+                                    <div className={`bg-blue-500 h-full w-[${skill.percentage}%]`}></div>
                                 </div>
                             </div>
                         </span>

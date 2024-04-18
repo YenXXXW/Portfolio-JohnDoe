@@ -5,7 +5,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 const ProjectCard = ({ project, setShowModal, setModalData }) => {
     return (
         <div
-            className={`flex w-[350px] h-[250px] relative shadow-xl border-[1px] border-black/15 cursor-pointer`}
+            className={`flex w-[350px] h-[250px] relative shadow-xl border-[1px] border-black/15 cursor-pointer `}
             onClick={() => {
                 setShowModal(true), setModalData(project);
             }}
@@ -18,7 +18,7 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
 //Modle to pop up when the project is clicked
 const Modal = ({ project, setShowModal }) => {
     return (
-        <div className="relative sm:flex sm:flex-row-reverse bg-black/80  pl-[5%] py-[10%] sm:py-[6%]">
+        <div className="relative sm:flex sm:flex-row-reverse gap-3 bg-white text-black bg-r pl-[5%] py-[10%] sm:py-[6%]">
             <IoCloseOutline
                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
                 onClick={() => {
@@ -28,7 +28,7 @@ const Modal = ({ project, setShowModal }) => {
             <img src={project.image.url} className="object-cover h-[200px] md:w-[300px] md:h-[250px] lg:w-[500px] lg:h-[300px]" />
 
             <div className="flex gap-4">
-                <div className=" flex flex-col gap-4 text-sm">
+                <div className=" flex flex-col gap-4 text-sm lg:text-base">
                     <h3 className="uppercase">{project.title}</h3>
                     <p>{project.description}</p>
                     <div>
@@ -64,7 +64,7 @@ function Projects({ projects }) {
             {/* changes the background color when the modal shows */}
             {showModal && <div className={`fixed top-0 left-0 z-30 w-full h-screen bg-black/60 backdrop-blur-sm`} />}
             <h2>Projects</h2>
-            <div className="flex mt-[5%] flex-wrap justify-center gap-5 lg:gap-10">
+            <div className="grid mt-[5%] lg:grid-cols-3 justify-center gap-5 lg:gap-10">
                 {projects.map((project) => (
                     <div key={project.image.url}>
                         <ProjectCard project={project} setShowModal={setShowModal} setModalData={setModalData} />
@@ -72,7 +72,7 @@ function Projects({ projects }) {
                 ))}
             </div>
             {showModal && (
-                <div className="fixed mx-auto top-0 bottom-0 lg:bottom-0 left-0 right-0 m-auto z-40 w-[95%] h-[90%] md:w-[75%] md:h-[86%]">
+                <div className="fixed mx-auto top-20 md:top-10 lg:top-20 bottom-0 lg:bottom-0 left-0 right-0 m-auto z-40 w-[95%] lg:h-[90%] ">
                     <Modal project={modalData} setShowModal={setShowModal} />
                 </div>
             )}

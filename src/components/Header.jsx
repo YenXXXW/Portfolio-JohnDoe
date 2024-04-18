@@ -33,8 +33,8 @@ function Header({ user }) {
             </div>
 
             {/* Menu with links for small screens */}
-            <div className=" pl-5 w-full lg:hidden">
-                <div className={`flex gap-3 items-center  ${background && 'bg-black'}`}>
+            <div className="  w-full lg:hidden">
+                <div className={`pl-5 flex gap-3 items-center  ${background && 'bg-black'}`}>
                     <IoIosMenu size={25} onClick={() => setShowSidebar(!showSidebar)} />
                     <h4 className="font-Tilt uppercase">{user.about.name}</h4>
                 </div>
