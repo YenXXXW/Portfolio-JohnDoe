@@ -10,24 +10,21 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
                 setShowModal(true), setModalData(project);
             }}
         >
-            <img src={project.image.url} className="absolute z-10" />
+            <img src={project.image.url} className="absolute " />
         </div>
     );
 };
 
-//Modle to pop up when the project is clicked
 const Modal = ({ project, setShowModal }) => {
     return (
-        <div className="relative sm:flex sm:flex-row-reverse gap-3 text-black pl-[5%]  py-[5%] bg-white">
+        <div className="z-20 px-[5%] lg:px-[10%] relative flex flex-col sm:flex-row gap-3 w-full h-full bg-green-600">
             <IoCloseOutline
-                className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
+                className=" absolute top-0 right-0 text-3xl hover:bg-red-600 text-black hover:text-white"
                 onClick={() => {
                     setShowModal(false);
                 }}
             />
-            <img src={project.image.url} className="object-cover h-[200px] md:w-[300px] md:h-[250px] lg:w-[500px] lg:h-[300px]" />
-
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center ">
                 <div className=" flex flex-col gap-4 text-sm lg:text-base">
                     <h3 className="uppercase">{project.title}</h3>
                     <p>{project.description}</p>
@@ -50,9 +47,49 @@ const Modal = ({ project, setShowModal }) => {
                     </div>
                 </div>
             </div>
+            <img src={project.image.url} className="object-cover mt-5 h-[200px] md:w-[300px] md:h-[250px] lg:w-[500px] lg:h-[300px]" />
         </div>
     );
 };
+
+//Modle to pop up when the project is clicked
+// const Modal = ({ project, setShowModal }) => {
+//     return (
+//         <div className="relative sm:flex sm:flex-row-reverse gap-3 text-black pl-[5%]  py-[5%] bg-white">
+//             <IoCloseOutline
+//                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
+//                 onClick={() => {
+//                     setShowModal(false);
+//                 }}
+//             />
+//             <img src={project.image.url} className="object-cover h-[200px] md:w-[300px] md:h-[250px] lg:w-[500px] lg:h-[300px]" />
+
+//             <div className="flex gap-4">
+//                 <div className=" flex flex-col gap-4 text-sm lg:text-base">
+//                     <h3 className="uppercase">{project.title}</h3>
+//                     <p>{project.description}</p>
+//                     <div>
+//                         <p className="font-bold  mt-5">Tech stack</p>
+//                         <div className="flex gap-3 mt-2">
+//                             {project.techStack.map((tech) => (
+//                                 <span key={tech}>{tech}</span>
+//                             ))}
+//                         </div>
+//                     </div>
+//                     <div className="flex gap-4 mt-5">
+//                         <a href={project.githuburl} target="_blank" rel="noreferrer">
+//                             <span className="w-[80px] py-1 bg-gray-800 rounded-md text-white inline-block text-center">code</span>
+//                         </a>
+
+//                         <a href={project.liveurl}>
+//                             <span className="w-[80px] py-1 bg-gray-800 rounded-md text-white inline-block  text-center">live</span>
+//                         </a>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
 
 function Projects({ projects }) {
     // const selectedProjects = projects.slice(3, 7);
@@ -60,9 +97,9 @@ function Projects({ projects }) {
     const [modalData, setModalData] = useState();
 
     return (
-        <div className={`PageContainer sm:pt-[2%] md:pt-[5%] relative bg-green-300 z-10`} id="Projects">
+        <div className={`PageContainer relative z-0`} id="Projects">
             {/* changes the background color when the modal shows */}
-            {showModal && <div className={`fixed top-0 left-0 z-30 w-full h-screen bg-black/60 backdrop-blur-sm`} />}
+            {/* {showModal && <div className={`fixed top-0 left-0 z-10 w-full h-screen bg-black/60 backdrop-blur-sm`} />} */}
             <h2>Projects</h2>
             <div className="grid mt-[5%] lg:grid-cols-3 justify-center gap-5 lg:gap-10">
                 {projects.map((project) => (
@@ -72,7 +109,7 @@ function Projects({ projects }) {
                 ))}
             </div>
             {showModal && (
-                <div className="fixed mx-auto top-20 md:top-0 lg:top-28 bottom-0 lg:bottom-0 left-0 right-0 m-auto z-40 w-[95%] lg:h-[90%]">
+                <div className="fixed left-0 top-9 w-full h-full">
                     <Modal project={modalData} setShowModal={setShowModal} />
                 </div>
             )}

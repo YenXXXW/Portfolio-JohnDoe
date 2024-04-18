@@ -35,7 +35,7 @@ function Header({ user }) {
             {/* Menu with links for small screens */}
             <div className="  w-full lg:hidden">
                 <div className={`pl-5 flex gap-3 items-center  ${background && 'bg-black'}`}>
-                    <IoIosMenu size={25} onClick={() => setShowSidebar(!showSidebar)} />
+                    <IoIosMenu size={25} onClick={() => setShowSidebar(true)} className="cursor-pointer" />
                     <h4 className="font-Tilt uppercase">{user.about.name}</h4>
                 </div>
 
@@ -48,7 +48,7 @@ function Header({ user }) {
                 >
                     <ul className={`font-Nunito gap-3 w-[75%] flex flex-col items-end-end`}>
                         <div className="flex gap-3 mt-3 ml-4 items-center">
-                            <AiOutlineClose onClick={() => setShowSidebar(false)} size={20} />
+                            <AiOutlineClose onClick={() => setShowSidebar(false)} size={20} className="cursor-pointer" />
                             <h4 className="font-Tilt uppercase">{user.about.name}</h4>
                         </div>
 
