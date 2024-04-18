@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Skills({ skills }) {
     // const [selectedSkills, setSelectedSkills] = useState();
     // const [showMore, setShowMore] = useState(false);
-
+    console.log(skills);
     return (
         <div className="PageContainer" id="Skills">
             <h2 className="mb-3">Skills</h2>

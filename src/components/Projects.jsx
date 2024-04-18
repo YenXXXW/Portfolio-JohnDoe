@@ -58,7 +58,6 @@ function Projects({ projects }) {
     // const selectedProjects = projects.slice(3, 7);
     const [showModal, setShowModal] = useState(false);
     const [modalData, setModalData] = useState();
-    console.log(showModal);
 
     return (
         <div className={`PageContainer relative z-10`} id="Projects">

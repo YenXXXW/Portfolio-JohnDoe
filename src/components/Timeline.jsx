@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import { IoLocationOutline } from 'react-icons/io5';
 
 function Timeline({ education, experience }) {
-    console.log(education);
-
     return (
         <div className="PageContainer" id="Timeline">
             <h2 className="mb-10">Timeline</h2>

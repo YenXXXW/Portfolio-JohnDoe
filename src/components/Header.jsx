@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosMenu } from 'react-icons/io';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -7,9 +7,19 @@ function Header({ user }) {
     const NavLinks = ['Home', 'About', 'Skills', 'Projects', 'Services', 'Timeline', 'Testimonial', 'Contact'];
 
     const [showSidebar, setShowSidebar] = useState(false);
+    const [background, setBackground] = useState(false);
+
+    useEffect(() => {
+        const handleShadow = () => {
+            if (window.scrollY >= 90) {
+                setBackground(true);
+            }
+        };
+        window.addEventListener('scroll', handleShadow);
+    }, []);
     return (
-        <nav className="w-full fixed pt-2 z-20">
-            <div className="hidden lg:flex font-Nunito text-sm justify-between items-center">
+        <nav className="w-full fixed z-20">
+            <div className={`px-10 hidden lg:flex font-Nunito text-sm justify-between items-center ${background && 'bg-black'}`}>
                 <h4 className="font-Tilt uppercase">{user.about.name}</h4>
 
                 <ul className="flex gap-7 justify-center">
@@ -23,8 +33,8 @@ function Header({ user }) {
             </div>
 
             {/* Menu with links for small screens */}
-            <div className=" pl-5 w-[200px] lg:hidden">
-                <div className="flex gap-3 items-center">
+            <div className=" pl-5 w-full lg:hidden">
+                <div className={`flex gap-3 items-center  ${background && 'bg-black'}`}>
                     <IoIosMenu size={25} onClick={() => setShowSidebar(!showSidebar)} />
                     <h4 className="font-Tilt uppercase">{user.about.name}</h4>
                 </div>
