@@ -1,7 +1,19 @@
 import PropTypes from 'prop-types';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const ServiceCard = ({ service }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref);
+
+    const mainControls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start('visible');
+        }
+    }, [isInView]);
     return (
         <div tabIndex={0} className="collapse text-white">
             <div className="collapse-title text-xl font-medium">
@@ -15,7 +27,13 @@ const ServiceCard = ({ service }) => {
                     <p className="text-sm">{service.desc}</p>
                     <h3>{service.charge}</h3>
                 </div>
-                <img src={service.image.url} className="hidden md:block md:w-[300px] md:h-[200px] object-cover" />
+                <motion.img
+                    variants={{ hidden: { x: 0, y: 0 }, visible: { scaleX: 0.9, scaleY: 1.2 } }}
+                    initial="hidden"
+                    animate={mainControls}
+                    src={service.image.url}
+                    className="hidden md:block md:w-[300px] md:h-[200px] object-cover"
+                />
             </div>
         </div>
     );
