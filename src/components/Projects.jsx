@@ -111,7 +111,7 @@ function Projects({ projects }) {
                 <>
                     {/* changes the background color when the modal shows */}
                     <div className="fixed left-0 top-0 w-full h-full bg-white/30 backdrop-blur-2xl z-20"></div>
-                    <div className="fixed left-0 top-5 md:top-9 w-full h-full z-30">
+                    <div className="fixed left-0 top-5 lg:top-9 w-full h-full z-30">
                         <Modal project={modalData} setShowModal={setShowModal} />
                     </div>
                 </>
