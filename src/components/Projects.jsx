@@ -27,7 +27,7 @@ const Modal = ({ project, setShowModal }) => {
             <div className=""></div>
             <img src={project.image.url} className="object-contain mt-5 h-[200px] md:w-[300px] md:h-[250px] lg:w-[350px] lg:h-[300px]" />
             <div className="flex gap-4 items-center ">
-                <div className=" flex flex-col gap-4 text-sm lg:text-base">
+                <div className=" flex flex-col gap-2 md:gap-4 text-sm lg:text-base">
                     <h3 className="uppercase">{project.title}</h3>
                     <p>{project.description}</p>
                     <div>
