@@ -32,7 +32,7 @@ function Testimonial({ testimonials }) {
         <div className="PageContainer" id="Testimonial">
             <h2>What people say</h2>
 
-            <div className="relative h-[51vh] md:h-[70vh] bg-gradient-to-br from-purple-400 to-blue-700 p-[1px] lg:w-[63%]  mx-auto my-[5%]  ">
+            <div className="relative h-[60vh] md:h-[70vh] bg-gradient-to-br from-purple-400 to-blue-700 p-[1px] lg:w-[63%]  mx-auto my-[5%]  ">
                 <AnimatePresence>
                     <motion.div
                         key={index}
