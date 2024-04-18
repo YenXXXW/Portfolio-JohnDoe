@@ -18,7 +18,7 @@ const ProjectCard = ({ project, setShowModal, setModalData }) => {
 //Modle to pop up when the project is clicked
 const Modal = ({ project, setShowModal }) => {
     return (
-        <div className="relative sm:flex sm:flex-row-reverse gap-3 text-black pl-[5%] sm:py-0  lg:py-[5%] bg-white">
+        <div className="relative sm:flex sm:flex-row-reverse gap-3 text-black pl-[5%]  py-[5%] bg-white">
             <IoCloseOutline
                 className="absolute top-0 right-0 text-2xl hover:bg-red-600 hover:text-white"
                 onClick={() => {
@@ -60,7 +60,7 @@ function Projects({ projects }) {
     const [modalData, setModalData] = useState();
 
     return (
-        <div className={`PageContainer relative z-10`} id="Projects">
+        <div className={`PageContainer sm:pt-[2%] md:pt-[5%] relative bg-green-300 z-10`} id="Projects">
             {/* changes the background color when the modal shows */}
             {showModal && <div className={`fixed top-0 left-0 z-30 w-full h-screen bg-black/60 backdrop-blur-sm`} />}
             <h2>Projects</h2>

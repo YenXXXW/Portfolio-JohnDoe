@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
-import { motion, AnimatePresence, delay } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Testimonial({ testimonials }) {
     const [index, setIndex] = useState(0);
