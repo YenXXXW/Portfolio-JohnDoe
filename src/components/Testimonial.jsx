@@ -41,7 +41,7 @@ function Testimonial({ testimonials }) {
                         animate="center"
                         exit="exit"
                         transition={{
-                            x: { type: 'spring', stiffness: 300, damping: 30 },
+                            type: 'none',
                             opacity: { duration: 0.2 },
                         }}
                         className="absolute h-full top-0 left-0 w-full  p-[10%] md:p-[3%] lg:p-[10%] flex flex-col gap-5 overflow-hidden"
@@ -56,13 +56,13 @@ function Testimonial({ testimonials }) {
                     </motion.div>
                 </AnimatePresence>
                 <IoMdArrowDropleft
-                    className={`top-[45%] left-[-9%] md:left-[-7%] absolute text-purple-600 text-4xl ${index === 0 && 'opacity-0 pointer-events-none'}`}
+                    className={`top-[45%] left-[-9%] md:left-[-7%] absolute text-purple-600 text-4xl cursor-pointer ${index === 0 && 'opacity-0 pointer-events-none'}`}
                     onClick={() => {
                         setIndex(index - 1), setDirection('left');
                     }}
                 />
                 <IoMdArrowDropright
-                    className={`top-[45%] right-[-9%] md:right-[-7%] absolute text-purple-600 text-4xl ${index === testimonials.length - 1 && 'opacity-0 pointer-events-none'}`}
+                    className={`top-[45%] right-[-9%] md:right-[-7%] absolute text-purple-600 text-4xl cursor-pointer ${index === testimonials.length - 1 && 'opacity-0 pointer-events-none'}`}
                     onClick={() => {
                         setIndex(index + 1), setDirection('right');
                     }}

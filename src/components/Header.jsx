@@ -19,7 +19,7 @@ function Header({ user }) {
     }, []);
     return (
         <nav className="w-full fixed z-20">
-            <div className={`px-10 hidden lg:flex font-Nunito text-sm justify-between items-center ${background && 'bg-black'}`}>
+            <div className={`px-10 pt-1 hidden lg:flex font-Nunito text-sm justify-between items-center ${background && 'bg-black'}`}>
                 <h4 className="font-Tilt uppercase">{user.about.name}</h4>
 
                 <ul className="flex gap-7 justify-center">

@@ -17,7 +17,7 @@ const ServiceCard = ({ service }) => {
     return (
         <div tabIndex={0} className="collapse text-white">
             <div className="collapse-title text-xl font-medium">
-                <p className="flex gap-3 items-center">
+                <p className="flex gap-3 items-center text-lg lg:text-2xl ">
                     <span>{service.name}</span>
                     <MdOutlineKeyboardArrowDown />
                 </p>

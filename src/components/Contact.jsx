@@ -31,7 +31,7 @@ function Contact({ user, socialMedia }) {
                     <input type={'text'} required placeholder="Name" />
                     <input type={'email'} required placeholder="Email" />
                     <textarea required rows={6} placeholder="Message" />
-                    <button className="bg-blue-700 w-[100px] text-sm py-1">Submit</button>
+                    <button className="bg-blue-700 w-[100px] text-sm py-1 mx-auto">Submit</button>
                 </form>
             </div>
         </div>

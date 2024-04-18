@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import HeroImg from '../assets/hero.jpg';
 import Reveal from './Reveal';
+import { motion } from 'framer-motion';
 
 function Hero({ user }) {
     return (
@@ -19,7 +20,12 @@ function Hero({ user }) {
 
                 <Reveal>
                     <a href="#About">
-                        <button className="border-[1px] border-blue-700 py-1 px-2 mt-3 text-sm ">About Me</button>
+                        <motion.button
+                            whileHover={{ boxShadow: '0px 0px 20px rgb(0,200,255)' }}
+                            className="border-[1px] border-blue-700 py-1 px-2 mt-3 text-sm md:text-base "
+                        >
+                            About Me
+                        </motion.button>
                     </a>
                 </Reveal>
             </div>

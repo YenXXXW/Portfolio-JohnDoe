@@ -1,12 +1,36 @@
+import { useAnimation, useInView } from 'framer-motion';
 import PropTypes from 'prop-types';
-// import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 function Skills({ skills }) {
-    // const [selectedSkills, setSelectedSkills] = useState();
-    // const [showMore, setShowMore] = useState(false);
+    const horizontalLine = {
+        hidden: {
+            x: '-100%',
+        },
+        visible: {
+            x: 0,
+            transition: {
+                delay: 0.75,
+                type: 'none',
+            },
+        },
+    };
+
+    const ref = useRef(null);
+
+    const isInView = useInView(ref);
+
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            controls.start('visible');
+        }
+    }, [isInView]);
 
     return (
-        <div className="PageContainer" id="Skills">
+        <div className="PageContainer" id="Skills" ref={ref}>
             <h2 className="mb-3">Skills</h2>
             <ul className="grid md:grid-cols-2 lg:grid-cols-3 w-full justify-center gap-4">
                 {skills.map((skill) => (
@@ -15,8 +39,13 @@ function Skills({ skills }) {
                             <img src={skill.image.url} className="w-[40px] h-[40px]" />
                             <div>
                                 <h4 className="font-Nunito">{skill.name}</h4>
-                                <div className=" mt-2 h-[2px] w-[200px] bg-white">
-                                    <div className={`bg-blue-500 h-full w-[${skill.percentage}%]`}></div>
+                                <div className=" mt-2 h-[2px] w-[200px] bg-white overflow-hidden">
+                                    <motion.div
+                                        variants={horizontalLine}
+                                        initial="hidden"
+                                        animate={controls}
+                                        className={`bg-red-600 h-full w-[${skill.percentage}%]`}
+                                    ></motion.div>
                                 </div>
                             </div>
                         </span>
