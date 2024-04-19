@@ -55,18 +55,78 @@ function Testimonial({ testimonials }) {
                         </div>
                     </motion.div>
                 </AnimatePresence>
-                <IoMdArrowDropleft
-                    className={`top-[45%] left-[-9%] md:left-[-7%] absolute text-purple-600 text-4xl cursor-pointer ${index === 0 && 'opacity-0 pointer-events-none'}`}
+
+                {/* arrow animation for small screen */}
+                <motion.div
+                    animate={{
+                        left: ['-9%', '-10%', '-10%', '-9%'],
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatDelay: 0.5,
+                    }}
+                    className={`absolute md:hidden top-[45%] left-[-9%] text-purple-600 text-4xl cursor-pointer ${index === 0 && 'opacity-0 pointer-events-none'}`}
                     onClick={() => {
                         setIndex(index - 1), setDirection('left');
                     }}
-                />
-                <IoMdArrowDropright
-                    className={`top-[45%] right-[-9%] md:right-[-7%] absolute text-purple-600 text-4xl cursor-pointer ${index === testimonials.length - 1 && 'opacity-0 pointer-events-none'}`}
+                >
+                    <IoMdArrowDropleft />
+                </motion.div>
+                <motion.div
+                    animate={{
+                        right: ['-9%', '-10%', '-10%', '-9%'],
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatDelay: 0.5,
+                    }}
+                    className={` absolute  md:hidden  top-[45%] right-[-9%] text-purple-600 text-4xl cursor-pointer ${index === testimonials.length - 1 && 'opacity-0 pointer-events-none'}`}
                     onClick={() => {
                         setIndex(index + 1), setDirection('right');
                     }}
-                />
+                >
+                    <IoMdArrowDropright />
+                </motion.div>
+
+                {/* arrow animation for large screen */}
+                <motion.div
+                    animate={{
+                        left: ['-7%', '-8%', '-8%', '-7%'],
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatDelay: 0.5,
+                    }}
+                    className={`hidden md:block absolute top-[45%] left-[-7%]  text-purple-600 text-4xl cursor-pointer ${index === 0 && 'opacity-0 pointer-events-none'}`}
+                    onClick={() => {
+                        setIndex(index - 1), setDirection('left');
+                    }}
+                >
+                    <IoMdArrowDropleft />
+                </motion.div>
+                <motion.div
+                    animate={{
+                        right: ['-7%', '-8%', '-8%', '-7%'],
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatDelay: 0.5,
+                    }}
+                    className={`hidden md:block absolute top-[45%] right-[-7%] text-purple-600 text-4xl cursor-pointer ${index === testimonials.length - 1 && 'opacity-0 pointer-events-none'}`}
+                    onClick={() => {
+                        setIndex(index + 1), setDirection('right');
+                    }}
+                >
+                    <IoMdArrowDropright />
+                </motion.div>
             </div>
         </div>
     );

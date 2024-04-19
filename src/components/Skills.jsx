@@ -30,9 +30,9 @@ function Skills({ skills }) {
     }, [isInView]);
 
     return (
-        <div className="PageContainer" id="Skills" ref={ref}>
+        <div className="PageContainer" id="Skills">
             <h2 className="mb-3">Skills</h2>
-            <ul className="grid md:grid-cols-2 lg:grid-cols-3 w-full justify-center gap-4">
+            <ul className="grid md:grid-cols-2 lg:grid-cols-3 w-full justify-center gap-4" ref={ref}>
                 {skills.map((skill) => (
                     <li key={skill.name}>
                         <span className="flex bg-gray-900 w-[300px] h-[70px] pl-3 gap-3 items-center">
@@ -44,7 +44,8 @@ function Skills({ skills }) {
                                         variants={horizontalLine}
                                         initial="hidden"
                                         animate={controls}
-                                        className={`bg-red-600 h-full w-[${skill.percentage}%]`}
+                                        className={`bg-red-600 h-full `}
+                                        style={{ width: `${skill.percentage}%` }}
                                     ></motion.div>
                                 </div>
                             </div>
